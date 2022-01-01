@@ -20,30 +20,33 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="Nothing is True, Everything is Permitted">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Connor&#39;s Blog">
-<meta property="og:url" content="http://example.com/index.html">
+  <meta name="description" content="变量局部变量声明方式12345678910111213141516171819202122232425262728package mainimport &quot;fmt&quot;func main() &amp;#123;	&#x2F;&#x2F; golang的变量使用方式	&#x2F;&#x2F; 1、指定变量类型，声明后不赋值，则使用默认值	var i int	fmt.Println(&quot;i&#x3D;&quot;, i) &#x2F;&#x2F; int">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Golang基本语法">
+<meta property="og:url" content="http://example.com/2022/01/01/Golang%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/index.html">
 <meta property="og:site_name" content="Connor&#39;s Blog">
-<meta property="og:description" content="Nothing is True, Everything is Permitted">
+<meta property="og:description" content="变量局部变量声明方式12345678910111213141516171819202122232425262728package mainimport &quot;fmt&quot;func main() &amp;#123;	&#x2F;&#x2F; golang的变量使用方式	&#x2F;&#x2F; 1、指定变量类型，声明后不赋值，则使用默认值	var i int	fmt.Println(&quot;i&#x3D;&quot;, i) &#x2F;&#x2F; int">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-01-01T01:32:12.000Z">
+<meta property="article:modified_time" content="2022-01-01T09:50:44.976Z">
 <meta property="article:author" content="Connor">
+<meta property="article:tag" content="golang notebook">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/">
+<link rel="canonical" href="http://example.com/2022/01/01/Golang%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false,
+    isHome : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>Connor's Blog</title>
+  <title>Golang基本语法 | Connor's Blog</title>
   
 
 
@@ -142,9 +145,10 @@
         <div class="content-wrap">
           
 
-          <div class="content index posts-expand">
+          <div class="content post posts-expand">
             
-      
+
+    
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
@@ -160,10 +164,9 @@
       <meta itemprop="name" content="Connor's Blog">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/01/01/Golang%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" class="post-title-link" itemprop="url">Golang基本语法</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          Golang基本语法
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -187,7 +190,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><h3 id="局部变量声明方式"><a href="#局部变量声明方式" class="headerlink" title="局部变量声明方式"></a>局部变量声明方式</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;fmt&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="comment">// golang的变量使用方式</span></span><br><span class="line">	<span class="comment">// 1、指定变量类型，声明后不赋值，则使用默认值</span></span><br><span class="line">	<span class="keyword">var</span> i <span class="keyword">int</span></span><br><span class="line">	fmt.Println(<span class="string">&quot;i=&quot;</span>, i) <span class="comment">// int的默认值为0</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">// 2、根据值自行判断变量类型（类型推导）</span></span><br><span class="line">	<span class="keyword">var</span> f = <span class="number">10.10</span></span><br><span class="line">	fmt.Println(<span class="string">&quot;f=&quot;</span>, f)</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 3、省略var，使用:=的方式赋值</span></span><br><span class="line">	<span class="comment">// 变量名不能是已经声明过的，否则会导致编译错误</span></span><br><span class="line">	name := <span class="string">&quot;Tom&quot;</span></span><br><span class="line">	fmt.Println(<span class="string">&quot;name=&quot;</span>, name)</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 4、多变量赋值</span></span><br><span class="line">	<span class="comment">// 如果类型一致，还可以使用var i1, i2, i3 int的方式声明类型</span></span><br><span class="line">	<span class="keyword">var</span> i1, f1, name1 = <span class="number">10</span>, <span class="number">10.10</span>, <span class="string">&quot;Tom&quot;</span></span><br><span class="line">	<span class="comment">//i1, f1, name1 := 10, 10.10, &quot;Tom\&quot;</span></span><br><span class="line"></span><br><span class="line">	fmt.Println(<span class="string">&quot;i1=&quot;</span>, i1, <span class="string">&quot;,f1=&quot;</span>, f1, <span class="string">&quot;,name1=&quot;</span>, name1)</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+        <h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><h3 id="局部变量声明方式"><a href="#局部变量声明方式" class="headerlink" title="局部变量声明方式"></a>局部变量声明方式</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;fmt&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="comment">// golang的变量使用方式</span></span><br><span class="line">	<span class="comment">// 1、指定变量类型，声明后不赋值，则使用默认值</span></span><br><span class="line">	<span class="keyword">var</span> i <span class="keyword">int</span></span><br><span class="line">	fmt.Println(<span class="string">&quot;i=&quot;</span>, i) <span class="comment">// int的默认值为0</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">// 2、根据值自行判断变量类型（类型推导）</span></span><br><span class="line">	<span class="keyword">var</span> f = <span class="number">10.10</span></span><br><span class="line">	fmt.Println(<span class="string">&quot;f=&quot;</span>, f)</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 3、省略var，使用:=的方式赋值</span></span><br><span class="line">	<span class="comment">// 变量名不能是已经声明过的，否则会导致编译错误</span></span><br><span class="line">	name := <span class="string">&quot;Tom&quot;</span></span><br><span class="line">	fmt.Println(<span class="string">&quot;name=&quot;</span>, name)</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 4、多变量赋值</span></span><br><span class="line">	<span class="comment">// 如果类型一致，还可以使用var i1, i2, i3 int的方式声明类型</span></span><br><span class="line">	<span class="keyword">var</span> i1, f1, name1 = <span class="number">10</span>, <span class="number">10.10</span>, <span class="string">&quot;Tom&quot;</span></span><br><span class="line">	<span class="comment">//i1, f1, name1 := 10, 10.10, &quot;Tom\&quot;</span></span><br><span class="line"></span><br><span class="line">	fmt.Println(<span class="string">&quot;i1=&quot;</span>, i1, <span class="string">&quot;,f1=&quot;</span>, f1, <span class="string">&quot;,name1=&quot;</span>, name1)</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <h3 id="全局变量声明方式"><a href="#全局变量声明方式" class="headerlink" title="全局变量声明方式"></a>全局变量声明方式</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;fmt&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 全局变量声明</span></span><br><span class="line"><span class="keyword">var</span> n1 = <span class="number">1</span></span><br><span class="line"><span class="keyword">var</span> n2 = <span class="number">2</span></span><br><span class="line"><span class="keyword">var</span> n3 = <span class="number">3</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 一般使用以下方式</span></span><br><span class="line"><span class="keyword">var</span> (</span><br><span class="line">   n4 = <span class="number">4</span></span><br><span class="line">   n5 = <span class="number">5</span></span><br><span class="line">   n6 = <span class="number">6</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">   fmt.Println(<span class="string">&quot;n1=&quot;</span>, n1, <span class="string">&quot;,n2=&quot;</span>, n2, <span class="string">&quot;,n3=&quot;</span>, n3)</span><br><span class="line">   fmt.Println(<span class="string">&quot;n4=&quot;</span>, n4, <span class="string">&quot;,n5=&quot;</span>, n5, <span class="string">&quot;,n6=&quot;</span>, n6)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -220,21 +223,26 @@
 <h2 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;fmt&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">   <span class="comment">// 不同类型间转换必须显式的声明</span></span><br><span class="line">   <span class="keyword">var</span> a <span class="keyword">int</span></span><br><span class="line">   <span class="keyword">var</span> b = <span class="keyword">float32</span>(a)</span><br><span class="line">   <span class="keyword">var</span> c = <span class="keyword">float64</span>(b)</span><br><span class="line">   fmt.Println(<span class="string">&quot;a=&quot;</span>, a, <span class="string">&quot;,b=&quot;</span>, b, <span class="string">&quot;,c=&quot;</span>, c)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
-      
     </div>
 
     
     
     
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
+          <div class="post-tags">
+              <a href="/tags/golang-notebook/" rel="tag"># golang notebook</a>
+          </div>
+
+        
+
+
+        
       </footer>
+    
   </article>
   
   
-  
-
-
   
 
 
@@ -287,6 +295,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%98%E9%87%8F"><span class="nav-number">1.</span> <span class="nav-text">变量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F%E5%A3%B0%E6%98%8E%E6%96%B9%E5%BC%8F"><span class="nav-number">1.1.</span> <span class="nav-text">局部变量声明方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F%E5%A3%B0%E6%98%8E%E6%96%B9%E5%BC%8F"><span class="nav-number">1.2.</span> <span class="nav-text">全局变量声明方式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E9%BB%98%E8%AE%A4%E5%80%BC"><span class="nav-number">2.</span> <span class="nav-text">基本数据类型默认值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="nav-number">3.</span> <span class="nav-text">类型转换</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
